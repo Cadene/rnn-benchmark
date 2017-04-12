@@ -1,6 +1,8 @@
-# Embedding and GRU benchmark
+# Embedding and GRU benchmark (on GPU)
 
 ## PyTorch
+
+- Backend: cudnn
 
 ### Without packing
 
@@ -28,7 +30,10 @@ Forward + Backward:
 
 ## Torch7
 
-### Without trimZero
+- Backend: https://github.com/Element-Research/rnn
+- (Info about TrimZero](https://github.com/Element-Research/rnn#rnn.TrimZero)
+
+### Without trimZero
 
 ```
 $ th uniskip.lua
