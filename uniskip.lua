@@ -9,7 +9,7 @@ require 'cunn'
 function GRU(input_size, output_size, trimzero)
    local gru = nn.GRU(input_size, output_size, false, 0, true)
    if trimzero then
-      --gru:trimZero(1)
+      gru:trimZero(1)
    end
    local model = nn.Sequential()
       :add(nn.SplitTable(2))
@@ -64,7 +64,7 @@ end
 
 function create_uniskip(batch_size, seq_len, input_size, output_size, trimzero, vocab_size)
    local input = (torch.rand(batch_size, seq_len)*vocab_size):long():cuda()
-   input[{{},{1,20}}]:fill(0)
+   input[{{},{1,13}}]:fill(0)
    local target = torch.rand(batch_size, output_size):cuda()
    local model = Uniskip(input_size, output_size, trimzero, vocab_size):cuda()
    return input, target, model
@@ -88,8 +88,6 @@ local trimzero = true
 
 -- local input, target, model = create_gru(batch_size, seq_len, input_size, output_size, trimzero)
 local input, target, model = create_uniskip(batch_size, seq_len, input_size, output_size, trimzero, vocab_size)
-
-print(model)
 
 local criterion = nn.MSECriterion():cuda()
 

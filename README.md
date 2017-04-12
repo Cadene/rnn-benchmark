@@ -57,7 +57,7 @@ Forward + Backward:
 --- 10000 samples in 18.175946950912 seconds (550.17781365844 samples/s, 1817.5941944122 microsec/samples) ---
 ``` 
 
-### With trimZero and 70% of the sequence is null
+### With trimZero and 75% of the sequence is null
 
 ```
 $ th uniskip.lua
@@ -68,3 +68,15 @@ Forward:
 Forward + Backward:  
 --- 10000 samples in 10.128414869308 seconds (987.32169795254 samples/s, 1012.8411054611 microsec/samples) ---
 ``` 
+
+### With trimZero and 50% of the sequence is null
+
+```
+$ th uniskip.lua
+Setup : compile + forward/backward x 1 
+--- 11.889806985855 seconds ---  
+Forward: 
+--- 10000 samples in 4.162202835083 seconds (2402.5762640951 samples/s, 416.21987819672 microsec/samples) ---  
+Forward + Backward:  
+--- 10000 samples in 12.881628990173 seconds (776.29963527111 samples/s, 1288.1623983383 microsec/samples) ---
+```
